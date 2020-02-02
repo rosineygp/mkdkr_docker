@@ -1,4 +1,4 @@
-TAG:latest
+TAG=latest
 
 define docker_build =
 	$(.)
