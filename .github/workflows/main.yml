@@ -18,5 +18,5 @@ jobs:
     - name: push
       run: make push
       env:
-        SURGE_LOGIN: ${{ secrets.DOCKER_USERNAME }}
-        SURGE_TOKEN: ${{ secrets.DOCKER_PASSWORD }}
+        DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
+        DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
