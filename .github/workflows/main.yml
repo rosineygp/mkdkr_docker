@@ -1,0 +1,20 @@
+name: CI
+
+on: [push]
+
+jobs:
+  pipeline:
+
+    runs-on: ubuntu-18.04
+
+    steps:
+    - uses: actions/checkout@v1
+    - name: self-include
+      run: make self-include
+    - name: build
+      run: make build
+    - name: push
+      run: make push
+      env:
+        SURGE_LOGIN: ${{ secrets.DOCKER_USERNAME }}
+        SURGE_TOKEN: ${{ secrets.DOCKER_PASSWORD }}
