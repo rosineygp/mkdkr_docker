@@ -1,6 +1,8 @@
 REGISTRY=docker.io
 PROJECT=$(shell echo $$USER)
 REPOS=$(shell pwd | rev |cut -d'/' -f1 | rev)
+DOCKER_ARGS=
+DOCKER_BUILD_CONTEXT=.
 
 define _docker_login =	
 	if [ "$(DOCKER_USERNAME)" != "" ]; then \
@@ -13,14 +15,10 @@ define _docker_tag =
 		$(REGISTRY)/$(PROJECT)/$(REPOS):latest
 endef
 
-define _docker_push =
-	.. docker push $(REGISTRY)/$(PROJECT)/$(REPOS):$(1)
-endef
-
 define docker_build =
 	@$(.)
 	... privileged docker:19
-	.. docker build -t $(REGISTRY)/$(PROJECT)/$(REPOS):$(MKDKR_BRANCH_NAME_SLUG) .
+	.. docker build $(DOCKER_BUILD_ARGS) -t $(REGISTRY)/$(PROJECT)/$(REPOS):$(MKDKR_BRANCH_NAME_SLUG) $(DOCKER_BUILD_CONTEXT)
 endef
 
 define docker_push =

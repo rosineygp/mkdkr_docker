@@ -4,7 +4,7 @@ Docker helper for mkdkr.
 
 ## build
 
-Build a `Dockerfile` in current directory.
+Build `Dockerfile`.
 
 ```Makefile
 docker:
@@ -28,6 +28,8 @@ push:
 |REGISTRY|docker.io|Docker registry|
 |PROJECT|$USER|hub.docker image organization|
 |REPOS|current folder|hub.docker image repository|
+|DOCKER_BUILD_ARGS|""|Any docker build arguments|
+|DOCKER_BUILD_CONTEXT|.|Context folder|
 
 > \* Use MKDKR_BRANCH_NAME_SLUG for branch based tags
 
