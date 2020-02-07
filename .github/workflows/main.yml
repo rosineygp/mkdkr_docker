@@ -10,7 +10,7 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - run: |
-        git fetch --prune --depth=1 origin +refs/heads/*:refs/remotes/origin/*
+        git fetch --all
     - name: self-include
       run: make self-include
     - name: build
