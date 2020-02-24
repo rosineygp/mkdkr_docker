@@ -9,8 +9,6 @@ jobs:
     - uses: actions/checkout@v2
       with:
         fetch-depth: 0
-    - name: commitlint
-      run: make commitlint
     - name: self-include
       run: make self-include
     - name: build
